@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LikeSystemServicePxrovider"
+                "Eslamfaroug\\LaravelLikeDislike\\LikeSystemServiceProvider"
             ],
             "aliases": {
                 "LikeSystem": "Eslamfaroug\\LaravelLikeDislike\\Facades\\LikeSystem"
