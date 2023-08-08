@@ -1,0 +1,31 @@
+{
+    "name": "eslamfaroug/laravel-like_dislike",
+    "description": "Laravel Like System is a versatile package that provides a flexible and customizable mechanism for implementing like/dislike functionality in Laravel applications. With this package, developers can easily integrate like and dislike features into their models, such as posts, comments, or any other content, allowing users to interact with content in a meaningful way. The package offers a streamlined API for managing likes and dislikes, along with the ability to retrieve counts, toggle status, and more. Additionally, Laravel Like System provides seamless integration with the Laravel ecosystem, making it a powerful tool for enhancing user engagement and interaction within web applications.",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "illuminate/database": "^10.0|^11.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Eslamfaroug\\LaravelLikeDislike\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eslam Faroug"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Eslamfaroug\\LaravelLikeDislike\\LikeSystemServiceProvider"
+            ],
+            "aliases": {
+                "LikeSystem": "Eslamfaroug\\LaravelLikeDislike\\Facades\\LikeSystem"
+            }
+        }
+    }
+}
