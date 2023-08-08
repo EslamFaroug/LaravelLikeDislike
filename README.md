@@ -31,7 +31,7 @@ composer require eslamfaroug/laravel-like-system
 After installing the package, you need to publish the configuration file to customize its behavior. Run the following Artisan command:
 
 ```bash
-php artisan vendor:publish --provider="EslamFaroug\LaravelLikeSystem\LikeSystemServiceProvider" --tag=config
+php artisan vendor:publish --provider="EslamFaroug\LaravelLikeDislike\LikeSystemServiceProvider" --tag=config
 ```
 
 This will create a `like-system.php` configuration file in the `config` directory of your Laravel project.
@@ -43,7 +43,7 @@ This will create a `like-system.php` configuration file in the `config` director
 To allow users to like or dislike a model, you can simply use the `like` and `dislike` methods provided by the `LikeSystem` facade:
 
 ```php
-use EslamFaroug\LaravelLikeSystem\Facades\LikeSystem;
+use EslamFaroug\LaravelLikeDislike\Facades\LikeSystem;
 
 // Like a post
 LikeSystem::like($user, $post);
@@ -57,7 +57,7 @@ LikeSystem::dislike($user, $comment);
 You can retrieve the total like and dislike counts for a model using the `getLikeCount` and `getDislikeCount` methods:
 
 ```php
-use EslamFaroug\LaravelLikeSystem\Facades\LikeSystem;
+use EslamFaroug\LaravelLikeDislike\Facades\LikeSystem;
 
 $likeCount = LikeSystem::getLikeCount($post);
 $dislikeCount = LikeSystem::getDislikeCount($comment);
@@ -68,7 +68,7 @@ $dislikeCount = LikeSystem::getDislikeCount($comment);
 You can toggle the like or dislike status of a model for a user using the `toggleLike` and `toggleDislike` methods:
 
 ```php
-use EslamFaroug\LaravelLikeSystem\Facades\LikeSystem;
+use EslamFaroug\LaravelLikeDislike\Facades\LikeSystem;
 
 LikeSystem::toggleLike($user, $post);
 LikeSystem::toggleDislike($user, $comment);
@@ -82,8 +82,8 @@ To make a model "likeable," you need to implement the `Likeable` interface and u
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use EslamFaroug\LaravelLikeSystem\Contracts\Likeable;
-use EslamFaroug\LaravelLikeSystem\Traits\LikeableTrait;
+use EslamFaroug\LaravelLikeDislike\Contracts\Likeable;
+use EslamFaroug\LaravelLikeDislike\Traits\LikeableTrait;
 
 class Post extends Model implements Likeable
 {
@@ -97,8 +97,8 @@ Similarly, to make a model a "liker," you need to implement the `Liker` interfac
 
 ```php
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use EslamFaroug\LaravelLikeSystem\Contracts\Liker;
-use EslamFaroug\LaravelLikeSystem\Traits\LikerTrait;
+use EslamFaroug\LaravelLikeDislike\Contracts\Liker;
+use EslamFaroug\LaravelLikeDislike\Traits\LikerTrait;
 
 class User extends Authenticatable implements Liker
 {
@@ -113,7 +113,7 @@ Here are some examples of how you can use the Laravel Like System Package:
 ### Example 1: Liking a Post
 
 ```php
-use EslamFaroug\LaravelLikeSystem\Facades\LikeSystem;
+use EslamFaroug\LaravelLikeDislike\Facades\LikeSystem;
 
 $user = Auth::user();
 $post = Post::find(1);
@@ -124,7 +124,7 @@ LikeSystem::like($user, $post);
 ### Example 2: Retrieving Like Count
 
 ```php
-use EslamFaroug\LaravelLikeSystem\Facades\LikeSystem;
+use EslamFaroug\LaravelLikeDislike\Facades\LikeSystem;
 
 $post = Post::find(1);
 

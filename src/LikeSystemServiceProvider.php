@@ -5,6 +5,7 @@ namespace Eslamfaroug\LaravelLikeDislike;
 use Eslamfaroug\LaravelLikeDislike\Repositories\LikeSystemRepository;
 use Eslamfaroug\LaravelLikeDislike\Services\LikeSystemService;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Config;
 
 class LikeSystemServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,13 @@ class LikeSystemServiceProvider extends ServiceProvider
         });
     }
 
+    protected function loadMigrations()
+    {
+        if (Config::get('comments.load_migrations') === true) {
+            $this->loadMigrationsFrom(__DIR__ . '/../migrations');
+        }
+    }
+
     /**
      * Bootstrap services.
      *
@@ -27,6 +35,8 @@ class LikeSystemServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadMigrations();
+
         // Publish migration
         $this->publishes([
             __DIR__.'/../database/migrations' => database_path('migrations'),
