@@ -21,11 +21,17 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Eslamfaroug\\LaravelLikeDislike\\LikeSystemServiceProvider"
+                "LikeSystemServicePxrovider"
             ],
             "aliases": {
                 "LikeSystem": "Eslamfaroug\\LaravelLikeDislike\\Facades\\LikeSystem"
             }
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/EslamFaroug/LaravelLikeDislike"
+        }
+    ]
 }
